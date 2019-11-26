@@ -12,18 +12,18 @@ variable "public_subnet_id" {
 
 variable "instance_type" {
   description = "Instance type for VPN Box"
-  type        = "string"
+  type        = string
   default     = "t2.micro"
 }
 
 variable "whitelist" {
   description = "[List] Office IP CIDRs for SSH and HTTPS"
-  type        = "list"
+  type        = list(string)
 }
 
 variable "whitelist_http" {
   description = "[List] Whitelist for HTTP port"
-  type        = "list"
+  type        = list(string)
   default     = ["0.0.0.0/0"]
 }
 
@@ -39,6 +39,6 @@ variable "resource_name_prefix" {
 
 variable "internal_cidrs" {
   description = "[List] IP CIDRs to whitelist in the pritunl's security group"
-  type        = "list"
+  type        = list(string)
   default     = ["10.0.0.0/16"]
 }
