@@ -38,14 +38,6 @@ resource "aws_instance" "pritunl" {
       var.tags,
     )
   }"
-
-  provisioner "remote-exec" {
-    inline = [
-      "sleep 60",
-      "sudo pritunl setup-key",
-    ]
-  }
-
 }
 
 data "aws_instance" "pritunl_loaded" {
