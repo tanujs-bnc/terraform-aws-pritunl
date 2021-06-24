@@ -44,7 +44,7 @@ resource "aws_security_group" "pritunl" {
   }
 
   tags = merge(
-    map("Name", format("%s-%s", var.resource_name_prefix, "vpn")),
+    tomap( { Name = format("%s-%s", var.resource_name_prefix, "vpn") }),
     var.tags,
   )
 }
@@ -90,7 +90,7 @@ resource "aws_security_group" "allow_from_office" {
   }
 
   tags = merge(
-    map("Name", format("%s-%s", var.resource_name_prefix, "whitelist")),
+    tomap({ Name = format("%s-%s", var.resource_name_prefix, "whitelist") } ),
     var.tags,
   )
 }
