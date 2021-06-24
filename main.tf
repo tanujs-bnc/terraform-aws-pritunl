@@ -34,7 +34,7 @@ resource "aws_instance" "pritunl" {
 
   tags = "${
     merge(
-      map("Name", format("%s-%s", var.resource_name_prefix, "vpn")),
+      tomap({ Name= format("%s-%s", var.resource_name_prefix, "vpn")}),
       var.tags,
     )
   }"
